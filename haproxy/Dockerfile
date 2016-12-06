@@ -44,3 +44,7 @@ RUN set -x \
 COPY docker-entrypoint.sh /
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["haproxy", "-f", "/usr/local/etc/haproxy/haproxy.cfg"]
+
+ENV BACKEND_HOST 127.0.0.1
+ENV BACKEND_PORT 8080
+COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
